@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <div class="container">
-      <h1 class="title">{{ title }}</h1>
+  <div class="container">
+    <h1 class="title">{{ title }}</h1>
 
-      <div class="sample1">
-        <h2 class="subtitle">sample1</h2>
-        <div class="box"></div>
-      </div>
+    <div class="sample1">
+      <h2 class="subtitle">sample1</h2>
+      <div class="box"></div>
     </div>
   </div>
 </template>
@@ -21,11 +19,17 @@ export default {
 }
 </script>
 
-<style lang="scss">
-body {
+<style lang="scss" scoped>
+.container {
   background-color: #333;
   color: #fff;
   text-align: center;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {
@@ -35,15 +39,6 @@ body {
 .subtitle {
   font-size: 2.4rem;
   margin: 20px;
-}
-
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
 }
 
 .box {
