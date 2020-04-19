@@ -8,7 +8,7 @@
     </div>
     <div class="sample1">
       <h2 class="subtitle">sample1</h2>
-      <div class="box animated bounceInRight"></div>
+      <div class="box animated fadeInRightBig"></div>
     </div>
   </div>
 </template>
