@@ -12,6 +12,7 @@
         <nuxt-link to="/css-anime" class="button--green">CSS Animation</nuxt-link>
         <nuxt-link to="/vue-anime" class="button--green">CSS & Vue</nuxt-link>
         <nuxt-link to="/cards" class="button--green">Cards sample</nuxt-link>
+        <nuxt-link to="/vuetify" class="button--green">Vuetify</nuxt-link>
       </div>
     </div>
   </div>
