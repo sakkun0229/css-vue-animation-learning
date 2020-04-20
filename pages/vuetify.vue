@@ -3,7 +3,7 @@
     <v-content>
       <v-container fluid>
         <h1 class="text-center mb-6 ">Vuetify</h1>
-        <transition-group appear name="cards">
+        <transition-group appear name="cards" @before-enter="beforeEnter" @after-enter="afterEnter">
           <v-card class="mx-auto mb-2" color="#26c6da" dark max-width="400" v-for="item in items" :key="item">
             <v-card-title>
               <v-icon large left>
@@ -26,7 +26,25 @@
 export default {
   data() {
     return {
-      items: [1, 2, 3, 4, 5, 6, 7]
+      items: []
+    }
+  },
+  mounted() {
+    for (let i = 0; i < 7; i++) {
+      setTimeout(() => {
+        this.items.push(i)
+      }, i * 200)
+    }
+  },
+  methods: {
+    beforeEnter(el) {
+      // el.style.transitionDelay = 100 * parseInt(el.dataset.index, 10) + 'ms'
+      console.log('before Enter')
+    },
+
+    afterEnter(el) {
+      // el.style.transitionDelay = ''
+      console.log('after Enter')
     }
   }
 }
@@ -35,8 +53,9 @@ export default {
 <style lang="scss" scoped>
 .cards-enter {
   opacity: 0;
+  transform: scale(0.8) translateX(100%);
 }
 .cards-enter-active {
-  transition: 1s;
+  transition: 0.4s;
 }
 </style>

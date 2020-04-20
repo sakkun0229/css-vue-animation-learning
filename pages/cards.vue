@@ -15,8 +15,15 @@
 export default {
   data() {
     return {
-      items: [1, 2, 3, 4, 5],
+      items: [],
       nextNum: 6
+    }
+  },
+  mounted() {
+    for (let i = 0; i < 5; i++) {
+      setTimeout(() => {
+        this.items.push(i)
+      }, i * 150)
     }
   },
   methods: {
