@@ -58,24 +58,22 @@ export default {
 .title-enter {
   opacity: 0;
   transform: scale(0.5);
-  // transform: translateX(20%);
+  // transform: scale(0.5) translateX(50%);
 }
 .title-enter-active {
   transition: 0.5s;
 }
 
 .animated-sample {
-  opacity: 0;
-  left: -100%;
-  animation: sample 1.2s forwards;
+  // opacity: 0;
+  // left: -100%;
+  animation: sample 1.2s 0.5s forwards;
 }
 
 @keyframes sample {
   0% {
     left: -100%;
     opacity: 0;
-  }
-  90% {
   }
   100% {
     left: 0%;

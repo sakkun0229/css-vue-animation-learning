@@ -3,11 +3,11 @@
     <transition appear name="slide-in">
       <h1 class="title">Cards example</h1>
     </transition>
-    <!-- <transition-group appear name="slidIn" class="grid" tag="div"> -->
-    <div class="grid">
-      <div v-for="item in items" :key="item.id" class="card">{{ item }}</div>
-    </div>
-    <!-- </transition-group> -->
+    <transition-group appear name="slide-in" tag="div" class="grid">
+      <div v-for="item in items" :key="item" class="card">{{ item }}</div>
+    </transition-group>
+    <button v-on:click="add">Add</button>
+    <button v-on:click="remove">Remove</button>
   </div>
 </template>
 
@@ -15,7 +15,19 @@
 export default {
   data() {
     return {
-      items: [1, 2, 3, 4, 5]
+      items: [1, 2, 3, 4, 5],
+      nextNum: 6
+    }
+  },
+  methods: {
+    randomIndex: function() {
+      return Math.floor(Math.random() * this.items.length)
+    },
+    add: function() {
+      this.items.splice(this.randomIndex(), 0, this.nextNum++)
+    },
+    remove: function() {
+      this.items.splice(this.randomIndex(), 1)
     }
   }
 }
@@ -43,6 +55,7 @@ export default {
   height: 160px;
   // width: 200px;
   background-color: #fff;
+  transition: 1s;
 }
 
 .grid {
@@ -54,9 +67,14 @@ export default {
 
 .slide-in-enter {
   opacity: 0;
-  transform: scale(0.5);
+  transform: scale(0.1);
 }
+
 .slide-in-enter-active {
-  transition: 0.4s ease;
+  transition: 0.5s ease;
 }
+
+// .slide-in-move {
+//   transition: 1s;
+// }
 </style>
