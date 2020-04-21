@@ -9,12 +9,12 @@
               <v-icon large left>
                 mdi-twitter
               </v-icon>
-              <span class="title font-weight-light">Twitter</span>
+              <span class="title font-weight-light">{{ item }}</span>
             </v-card-title>
-            <v-card-text class="headline font-weight-bold">
+            <!-- <v-card-text class="headline font-weight-bold">
               "Turns out semicolon-less style is easier and safer in TS because most gotcha edge cases are type invalid
               as well."
-            </v-card-text>
+            </v-card-text> -->
           </v-card>
         </transition-group>
       </v-container>
@@ -26,19 +26,20 @@
 export default {
   data() {
     return {
-      items: []
+      items: [1, 2, 3, 4, 5, 6, 7]
     }
   },
   mounted() {
-    for (let i = 0; i < 7; i++) {
-      setTimeout(() => {
-        this.items.push(i)
-      }, i * 200)
-    }
+    // for (let i = 0; i < 7; i++) {
+    //   setTimeout(() => {
+    //     this.items.push(i)
+    //   }, i * 200)
+    // }
   },
   methods: {
     beforeEnter(el) {
       // el.style.transitionDelay = 100 * parseInt(el.dataset.index, 10) + 'ms'
+      // console.log(el.style)
       console.log('before Enter')
     },
 
@@ -53,9 +54,10 @@ export default {
 <style lang="scss" scoped>
 .cards-enter {
   opacity: 0;
-  transform: scale(0.8) translateX(100%);
+  transform: scale(0.5) translateX(100%);
 }
-.cards-enter-active {
-  transition: 0.4s;
+.cards-enter-active,
+.cards-move {
+  transition: 0.5s;
 }
 </style>
