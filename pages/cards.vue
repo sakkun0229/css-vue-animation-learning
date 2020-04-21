@@ -3,7 +3,7 @@
     <transition appear name="slide-in">
       <h1 class="title">Cards example</h1>
     </transition>
-    <transition-group appear name="slide-in" tag="div" class="grid">
+    <transition-group appear name="cards" tag="div" class="grid">
       <div v-for="item in items" :key="item" class="card">{{ item }}</div>
     </transition-group>
     <button v-on:click="add">Add</button>
@@ -58,13 +58,6 @@ export default {
   margin-bottom: 30px;
 }
 
-.card {
-  height: 160px;
-  // width: 200px;
-  background-color: #fff;
-  transition: 1s;
-}
-
 .grid {
   display: grid;
   grid-gap: 10px;
@@ -72,26 +65,33 @@ export default {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.slide-in-enter {
+.card {
+  height: 160px;
+  // width: 200px;
+  background-color: #fff;
+  // transition: 1s;
+}
+
+.cards-enter {
   opacity: 0;
   transform: scale(0.1);
 }
 
-.slide-in-enter-active {
+.cards-enter-active {
   transition: 0.5s ease;
 }
 
-.slide-in-leave-to {
+.cards-leave-to {
   opacity: 0;
   transform: scale(0.1);
 }
 
-.slide-in-leave-active {
+.cards-leave-active {
   transition: 0.5s ease;
+  position: absolute;
 }
 
-// .slide-in-move {
-//   transform: translateX(30%);
-//   transition: 0.5s;
-// }
+.cards-move {
+  transition: 0.5s;
+}
 </style>
