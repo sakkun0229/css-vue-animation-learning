@@ -81,7 +81,17 @@ export default {
   transition: 0.5s ease;
 }
 
+.slide-in-leave-to {
+  opacity: 0;
+  transform: scale(0.1);
+}
+
+.slide-in-leave-active {
+  transition: 0.5s ease;
+}
+
 // .slide-in-move {
-//   transition: 1s;
+//   transform: translateX(30%);
+//   transition: 0.5s;
 // }
 </style>
