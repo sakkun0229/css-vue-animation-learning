@@ -8,12 +8,20 @@
           <v-btn @click="remove">remove</v-btn>
         </div>
         <transition-group appear name="cards" @before-enter="beforeEnter" @after-enter="afterEnter">
-          <v-card class="mx-auto mb-2 card" color="#26c6da" dark max-width="400" v-for="item in items" :key="item">
+          <v-card
+            class="mx-auto mb-2 card"
+            color="#26c6da"
+            dark
+            max-width="400"
+            v-for="(item, index) in items"
+            :key="item"
+            :data-index="index"
+          >
             <v-card-title>
               <v-icon large left>
                 mdi-twitter
               </v-icon>
-              <span class="title font-weight-light">{{ item }}</span>
+              <span class="title font-weight-light">{{ item }} </span>
             </v-card-title>
             <!-- <v-card-text class="headline font-weight-bold">
               "Turns out semicolon-less style is easier and safer in TS because most gotcha edge cases are type invalid
@@ -48,13 +56,12 @@ export default {
       this.items.splice(Math.random() * this.items.length, 1)
     },
     beforeEnter(el) {
-      // el.style.transitionDelay = 100 * parseInt(el.dataset.index, 10) + 'ms'
-      // console.log(el.style)
+      el.style.transitionDelay = 100 * parseInt(el.dataset.index, 10) + 'ms'
       console.log('before Enter')
     },
 
     afterEnter(el) {
-      // el.style.transitionDelay = ''
+      el.style.transitionDelay = ''
       console.log('after Enter')
     }
   }
